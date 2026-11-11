@@ -1,0 +1,53 @@
+{
+  "name": "dropbox-azure-training",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.15.0"
+  },
+  "scripts": {
+    "dev": "concurrently -k 'tsx watch src/server/index.ts' 'vite --host 127.0.0.1'",
+    "build": "tsc -p tsconfig.server.json && vite build",
+    "start": "node dist/server/index.js",
+    "typecheck": "tsc --noEmit && tsc -p tsconfig.server.json --noEmit",
+    "test": "tsx --test --test-concurrency=1 tests/*.test.ts",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "admin": "tsx scripts/admin.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@azure/identity": "^4.13.0",
+    "@azure/storage-blob": "^12.29.0",
+    "bcryptjs": "^3.0.2",
+    "connect-pg-simple": "^10.0.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "express-session": "^1.18.2",
+    "file-type": "^21.1.1",
+    "helmet": "^8.1.0",
+    "multer": "^2.0.2",
+    "pg": "^8.16.3",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/connect-pg-simple": "^7.0.3",
+    "@types/express": "^5.0.5",
+    "@types/express-session": "^1.18.2",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^22.19.0",
+    "@types/pg": "^8.15.6",
+    "@types/supertest": "^6.0.3",
+    "concurrently": "^9.2.1",
+    "prettier": "^3.6.2",
+    "supertest": "^7.1.4",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vite": "^6.4.1",
+    "eslint": "^9.39.1",
+    "typescript-eslint": "^8.46.2"
+  }
+}

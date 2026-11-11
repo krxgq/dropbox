@@ -1,0 +1,7 @@
+node_modules
+dist
+package-lock.json
+AGENTS.md
+.data
+infra/*.bicep
+infra/main.json
